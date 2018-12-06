@@ -58,7 +58,7 @@ class Main extends React.Component {
 
   componentWillMount() {
     this.props.onLoad();
-    this.interval = setInterval(this.props.onLoad, 5000);
+    this.interval = setInterval(this.props.onLoad, 1000);
   }
 
   componentWillUnmount() {
@@ -67,7 +67,6 @@ class Main extends React.Component {
   }
 
   render() {
-
     const ordersList = [];
     if (this.props.orders !== undefined) {
       const groupedOrders = groupByUniqueOrders(this.props.orders);
@@ -79,13 +78,13 @@ class Main extends React.Component {
 
     return (
 
-      <Swiper 
+      <Swiper
         loop={false}
         showPagination={false}
         index={0}>
 
         {/* Order History Page */}
-        <View style={{flex: 1, alignItems: 'center'}}>
+        <View style={{ flex: 1, alignItems: 'center' }}>
           <Text style={{ width: '100%', fontSize: 20, textAlign: 'right', color: 'gray', fontStyle: 'italic' }}> Swipe for testing 123 &rarr; </Text>
           <Text style={styles.userName}>Welcome {this.props.restaurant}!</Text>
           <Text style={styles.header}>Order History</Text>
@@ -98,7 +97,7 @@ class Main extends React.Component {
           <Text>TESTING 1 2 3</Text>
         </View>
 
-         <View>
+        <View>
           <Text>TESTING 4 5 6</Text>
         </View>
 
@@ -119,9 +118,9 @@ function groupByUniqueOrders(inputArray) {
     }
     groupByOrderNum[obj.fk_orders].push(obj);
   });
-  for(let key in groupByOrderNum) {
+  for (let key in groupByOrderNum) {
     output.push(groupByOrderNum[key]);
-   }
+  }
   return output;
 }
 
